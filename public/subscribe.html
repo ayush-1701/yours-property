@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Subscription Payment</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/payments.css">
+    <link rel="stylesheet" type="text/css" href="css/cardDetail.css">
+
+</head>
+
+<body>
+   
+    
+  <div class="container-fluid">
+        
+        <div class="creditCardForm">
+            <div class="heading">
+                <h1>Confirm Purchase</h1>
+            </div>
+            <div class="payment">
+                <form>
+                    <div class="form-group" id="card-number-field">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" required placeholder="4123 xxxx xxxx xxxx">
+                    </div>
+
+                    <div class="form-group owner">
+                        <label for="owner">Name on Card</label>
+                        <input type="text" class="form-control" id="owner" required placeholder="Name">
+                    </div>
+                    <div class="form-group CVV">
+                        <label for="cvv">CVV</label>
+                        <input type="text" class="form-control" id="cvv" required placeholder="***">
+                    </div>
+                    
+                    <div class="form-group" id="expiration-date">
+                        <label>Expiration Date</label>
+                        <select >
+                            <option value="01">January</option>
+                            <option value="02">February </option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <select>
+                            <option value="22"> 2022</option>
+                            <option value="23"> 2023</option>
+                            <option value="24"> 2024</option>
+                            <option value="25"> 2025</option>
+                            <option value="26"> 2026</option>
+                            <option value="27"> 2027</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="credit_cards">
+                        <img src="img/visa.jpg" id="visa">
+                        <img src="img/mastercard.jpg" id="mastercard">
+                        <img src="img/amex.jpg" id="amex">
+                    </div>
+                    <div class="form-group" id="pay-now">
+                        <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- <p class="examples-note">Here are some dummy credit card numbers and CVV codes so you can test out the form:</p>
+
+        <div class="examples">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Card Number</th>
+                            <th>Security Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Visa</td>
+                            <td>4716108999716531</td>
+                            <td>257</td>
+                        </tr>
+                        <tr>
+                            <td>Master Card</td>
+                            <td>5281037048916168</td>
+                            <td>043</td>
+                        </tr>
+                        <tr>
+                            <td>American Express</td>
+                            <td>342498818630298</td>
+                            <td>3156</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+    </div>
+    <div id="alert-modal-div"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/jquery.payform.min.js" charset="utf-8"></script>
+    <script src="js/subs.js"></script>
+    <script >
+        const showAlert = (msg) => {
+                document.querySelector("#alert-modal-div").innerHTML = `  
+    <div class="modal fade" id="myModalalert" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+            <div class="modal-body">
+              
+              <i style="color: red"
+                >${msg}*<br/></i
+              ><br />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>`;
+                $("#myModalalert").modal("toggle");
+            };
+
+    </script>
+</body>
+
+</html>

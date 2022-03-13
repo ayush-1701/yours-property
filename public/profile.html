@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
+
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon" />
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+  <!--datatable libraries css by Sampada-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" />
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!--/ Nav Start /-->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top"></nav>
+  <script src="js/nav.js"></script>
+  <br />
+  <!--/ Nav End /-->
+
+  <!--Code by Sampada-->
+  <!--Profile part-->
+  <div id="delete-modal">
+  
+  </div>
+  <div class="container details user-profile" style="width: 450px; border: 2px solid lightslategray; margin-top: 8rem">
+    <div class="title-box-d">
+      <h3 class="title-d pt-3">User Profile</h3>
+    </div>
+    <form class="form-a">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="text-muted" for="Type">Name</label>
+            <input type="text" class="form-control form-control-lg form-control-a uname" placeholder="" readonly />
+          </div>
+        </div>
+        <div class="col-md-12 mb-2">
+          <div class="form-group">
+            <label class="text-muted" for="Type">Email</label>
+            <input type="email" class="form-control form-control-lg form-control-a uemail" placeholder="" readonly />
+          </div>
+        </div>
+        <div class="col-md-12 mb-2">
+          <div class="form-group">
+            <label class="text-muted" for="Type">Mobile Number</label>
+            <input type="text" class="form-control form-control-lg form-control-a umno" placeholder="" value="123456789"
+              readonly />
+          </div>
+        </div>
+
+        <div class="col-md-12 mb-4">
+          <button type="button" class="btn btn-b edit" style="margin-left: 1rem">
+            Edit Profile
+          </button>
+          <button type="button" class="btn btn-b save" disabled>
+            Save Profile
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!--Profile part end-->
+
+  <!--Change Password-->
+  <!-- <div
+      class="container changepass"
+      style="width: 400px; border: 2px solid lightslategray; margin-top: 8rem"
+    >
+      <div class="title-box-d">
+        <h4 class="title-d pt-3">Change Password</h4>
+      </div>
+      <form class="form-a">
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <div class="form-group">
+              <label class="text-muted" for="Type"
+                >New Password<span
+                  style="color: red; font-weight: bolder; font-size: 1.2rem"
+                  >*</span
+                ></label
+              >
+              <input
+                type="text"
+                class="form-control form-control-lg form-control-a"
+                placeholder="Enter Password"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="col-md-12 mb-2">
+            <div class="form-group">
+              <label class="text-muted" for="Type"
+                >Confirm Password<span
+                  style="color: red; font-weight: bolder; font-size: 1.2rem"
+                  >*</span
+                ></label
+              >
+              <input
+                type="text"
+                class="form-control form-control-lg form-control-a"
+                placeholder="Confirm Password"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="col-md-12 mb-4">
+            <button type="submit" class="btn btn-b" style="margin-left: 6rem">
+              Update
+            </button>
+          </div>
+        </div>
+      </form>
+    </div> -->
+  <!--Change Password end-->
+
+  <!--User details-->
+  <div class="container userdetails" style="margin-top: 8rem">
+    <div class="title-box-d">
+      <h3 class="title-d pt-2">User Details</h3>
+    </div>
+    <table id="myTable" class="table table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>isSeller</th>
+          <th>isSubscribed</th>
+          <th>isAdmin</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="data"></tbody>
+    </table>
+  </div>
+  <!--User details end-->
+
+  <!--Properties details-->
+  <div class="container propdetails" style="margin-top: 8rem">
+    <div class="title-box-d">
+      <h3 class="title-d pt-2">Property Details</h3>
+    </div>
+    <table id="propTable" class="table table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <!-- <th>Name</th> -->
+          <!-- <th>Address</th>             -->
+          <th>City</th>
+          <th>Zip Code</th>
+          <th>Type</th>
+          <th>Built Up</th>
+          <th>Carpet</th>
+          <th>Price</th>
+          <th>OwnerEmail</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="propdata"></tbody>
+    </table>
+  </div>
+  <!--Properties details end-->
+
+  <!--Contacted Properties-->
+  <div class="contacted-grid">
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Contacted Properties</h1>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  My List
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Contacted Properties
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="property-grid grid">
+      <div class="container">
+        <div class="row"id="prop-grid-1">
+          </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="pagination-a">
+              <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item next">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!--Contacted Properties end-->
+
+  <!--Sell Properties advertisement-->
+  <div class="sell-grid">
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Posted Properties</h1>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  My List
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Posted Properties
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="property-grid grid">
+      <div class="container">
+        <div class="row" id="prop-grid-2">
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="pagination-a">
+              <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item next">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  </div>
+  <!--Sell Properties end-->
+  <!--Code by Sampada-->
+
+  <!--/ footer Start /-->
+  <br />
+  <footer class="section-footer2"></footer>
+  <script src="js/footer.js"></script>
+  <!--/ Footer End /-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+  <div id="alert-modal-div"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+
+  <!--datatable libraries by Sampada-->
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <!--datatable libraries end-->
+
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+  <script src="js/adminprofile.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+
+</html>
