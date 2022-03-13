@@ -3,7 +3,8 @@ This is a mock project
 
 ### Step 1 :
 Download and extract zip file or
-### git clone https://github.com/ayush-1701/yours-property.git
+[git clone https://github.com/ayush-1701/yours-property.git](url)
+
 ### Step 2 :
 run below command
 npm i 
