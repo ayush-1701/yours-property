@@ -6,7 +6,8 @@ Download and extract zip file
 ### Step 2 :
 run below command
 npm i 
-### step 3 :
+### Step 3 :
 now run project on localhost -> npm start
 
+Hosted WebApp:
 https://yoursproperty.herokuapp.com/
